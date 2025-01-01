@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sytmal - Buy Wheat and Rice</title>
+  <style>
+    /* CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input, select, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Sytmal</h1>
+    <div id="login-section">
+      <h2>Farmer Login</h2>
+      <input type="text" id="mobile-number" placeholder="Enter Mobile Number">
+      <button id="login-btn">Login</button>
+    </div>
+
+    <div id="sell-section" style="display: none;">
+      <h2>Sell Your Products</h2>
+      <label for="product">Select Product:</label>
+      <select id="product">
+        <option value="wheat">Wheat</option>
+        <option value="rice">Rice</option>
+      </select>
+      <input type="number" id="quantity" placeholder="Enter Quantity (kg)">
+      <button id="sell-btn">Sell</button>
+    </div>
+
+    <div id="status" style="display: none;">
+      <h3>Thank you! We will contact you shortly.</h3>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript
+    document.getElementById('login-btn').addEventListener('click', () => {
+      const mobileNumber = document.getElementById('mobile-number').value;
+
+      if (mobileNumber) {
+        alert('Logged in successfully!');
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('sell-section').style.display = 'block';
+      } else {
+        alert('Please enter a valid mobile number.');
+      }
+    });
+
+    document.getElementById('sell-btn').addEventListener('click', () => {
+      const product = document.getElementById('product').value;
+      const quantity = document.getElementById('quantity').value;
+
+      if (product && quantity) {
+        alert(`Product listed: ${product}, Quantity: ${quantity} kg\nWe will contact you shortly!`);
+        document.getElementById('sell-section').style.display = 'none';
+        document.getElementById('status').style.display = 'block';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>
